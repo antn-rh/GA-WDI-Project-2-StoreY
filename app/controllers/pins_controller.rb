@@ -48,6 +48,6 @@ private
   end
 
   def pin_params
-    params.require(:pin).permit(:user_id, :story_id, :text)
+    params.require(:pin).permit(:user_id, :story_id, :text, :image)
   end
 end
