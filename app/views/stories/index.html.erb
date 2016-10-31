@@ -3,9 +3,11 @@
 <ul>
   <% @stories.each do |story| %>
     <li>
-      <%= story.user.name %>'s story <%= link_to 'Show', user_story_path(@user, story)  %>
+      <%= story.title %> <%= link_to 'Show', user_story_path(@user, story)  %>
     </li>
   <% end %>
 </ul>
 
 <%= link_to 'New Story', new_user_story_path(@user) %>
+<br>
+<%= link_to 'Back to profile', user_path(@user) %>
