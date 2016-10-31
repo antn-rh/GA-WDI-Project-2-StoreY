@@ -1,1 +1,9 @@
 <h1> Pin Show Placeholder </h1>
+
+<%= @pin.image %>
+<br>
+<%= link_to 'Edit Pin', edit_user_story_pin_path(@user, @story, @pin) %>
+<br>
+<%= link_to 'Delete Pin', user_story_pin_path(@user, @story, @pin), method: :delete, data: {confirm: 'Are you sure?'} %>
+<br>
+<%= link_to 'Back to Pins', user_story_pins_path(@user, @story) %>

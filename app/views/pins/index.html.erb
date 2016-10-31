@@ -3,10 +3,13 @@
 <ul>
   <% @pins.each do |pin| %>
     <li>
-      <%= image_tag pin.image.url(:medium) %>
+      <%= image_tag pin.image.url(:med) if pin.image? %>
       <%= pin.text %>
     </li>
+    <%= link_to 'Show', user_story_pin_path(@user, @story, pin) %>
   <% end %>
 </ul>
 
 <%= link_to 'Add New Pin', new_user_story_pin_path(@user, @story, @pin) %>
+<br>
+<%= link_to 'Back to Story', user_story_path(@user, @story) %>
