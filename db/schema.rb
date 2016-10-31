@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161031010726) do
+ActiveRecord::Schema.define(version: 20161031071235) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "pins", force: :cascade do |t|
+    t.integer  "story_id"
+    t.integer  "user_id"
+    t.string   "text"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["story_id"], name: "index_pins_on_story_id", using: :btree
+    t.index ["user_id"], name: "index_pins_on_user_id", using: :btree
+  end
 
   create_table "stories", force: :cascade do |t|
     t.string   "title"
@@ -33,5 +43,7 @@ ActiveRecord::Schema.define(version: 20161031010726) do
     t.datetime "updated_at",      null: false
   end
 
+  add_foreign_key "pins", "stories"
+  add_foreign_key "pins", "users"
   add_foreign_key "stories", "users"
 end
