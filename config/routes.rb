@@ -11,6 +11,14 @@ Rails.application.routes.draw do
   patch 'users/:id' => 'users#update'
   delete 'users/:id' => 'users#destroy'
 
+  get 'users/:user_id/stories' => 'stories#index', as: :user_stories
+  post 'users/:user_id/stories' => 'stories#create'
+  get 'users/:user_id/stories/new' => 'stories#new', as: :new_user_story
+  get 'users/:user_id/stories/:id/edit' => 'stories#edit', as: :edit_user_story
+  get 'users/:user_id/stories/:id' => 'stories#show', as: :user_story
+  patch 'users/:user_id/stories/:id' => 'stories#update'
+  delete 'users/:user_id/stories/:id' => 'stories#destroy'
+
   get '/login'     => 'sessions#new'
   post '/login'    => 'sessions#create'
   delete '/logout' => 'sessions#destroy'
