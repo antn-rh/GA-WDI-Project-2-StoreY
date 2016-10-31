@@ -2,10 +2,12 @@ class StoriesController < ApplicationController
 before_action :set_story, only: [:show, :edit, :update, :destroy]
 
   def index
-    @stories = Story.all
+    @stories = User.find(params[:user_id]).stories
+    @user = User.find(params[:user_id])
   end
 
   def new
+    @user = User.find(params[:user_id])
     @story = Story.new
   end
 
@@ -16,9 +18,11 @@ before_action :set_story, only: [:show, :edit, :update, :destroy]
   end
 
   def create
+    @user = User.find(params[:user_id])
     @story = Story.new(story_params)
+    @story.user = @user
     if @story.save
-      redirect_to stories_path
+      redirect_to user_stories_path(@user)
     else
       render :new
     end
@@ -26,7 +30,7 @@ before_action :set_story, only: [:show, :edit, :update, :destroy]
 
   def update
     if @story.update_attributes(story_params)
-      redirect_to @story
+      redirect_to user_story_path(@user, @story)
     else
       render :edit
     end
@@ -34,12 +38,13 @@ before_action :set_story, only: [:show, :edit, :update, :destroy]
 
   def destroy
     @story.destroy
-    redirect_to stories_path
+    redirect_to user_stories_path(@user)
   end
 
 private
   def set_story
     @story = Story.find(params[:id])
+    @user = User.find(params[:user_id])
   end
 
   def story_params

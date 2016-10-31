@@ -1,0 +1,9 @@
+<%= @story.title %>
+
+<%= @story.description.capitalize %>
+<br>
+<%= @story.location.capitalize %>
+<br>
+<%= link_to 'Edit', edit_user_story_path(@user, @story) %>
+<br>
+<%= link_to 'Delete', user_story_path(@user, @story), method: :delete, data: {confirm: 'Are you sure?'} %>
