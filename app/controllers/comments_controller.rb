@@ -18,7 +18,6 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
     if @comment.save
-      redirect_to ????
     else
       render :new
     end
@@ -34,7 +33,6 @@ class CommentsController < ApplicationController
 
   def destroy
     @comment.destroy
-    redirect_to ????
   end
 
 private
