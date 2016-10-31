@@ -2,11 +2,13 @@ class PinsController < ApplicationController
   before_action :set_pin, only: [:edit, :show, :update, :destroy]
 
   def index
-    @pins = Story.find(params[:story_id]).pins
+    @user = User.find(params[:user_id])
     @story = Story.find(params[:story_id])
+    @pins = Story.find(params[:story_id]).pins
   end
 
   def new
+    @user = User.find(params[:user_id])
     @story = Story.find(params[:story_id])
     @pin = Pin.new
   end
@@ -18,6 +20,7 @@ class PinsController < ApplicationController
   end
 
   def create
+    @user = User.find(params[:user_id])
     @story = Story.find(params[:story_id])
     @pin = Pin.new(pin_params)
     @pin.story = @story
@@ -30,7 +33,7 @@ class PinsController < ApplicationController
 
   def update
     if @pin.update_attributes(pin_params)
-      redirect_to @pin
+      redirect_to user_story_pin_path(@user, @story, @pin)
     else
       render :edit
     end
@@ -38,13 +41,14 @@ class PinsController < ApplicationController
 
   def destroy
     @pin.destroy
-    redirect_to user_story_pins_path
+    redirect_to user_story_pins_path(@user, @story)
   end
 
 private
   def set_pin
-    @pin = Pin.find(params[:id])
+    @user = User.find(params[:user_id])
     @story = Story.find(params[:story_id])
+    @pin = Pin.find(params[:id])
   end
 
   def pin_params

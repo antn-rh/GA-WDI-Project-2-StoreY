@@ -1,1 +1,12 @@
-<%= image_tag pin.image.url(:medium) %>
+<h1>My Pins</h1>
+
+<ul>
+  <% @pins.each do |pin| %>
+    <li>
+      <%= image_tag pin.image.url(:medium) %>
+      <%= pin.text %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to 'Add New Pin', new_user_story_pin_path(@user, @story, @pin) %>
