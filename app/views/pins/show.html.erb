@@ -1,6 +1,7 @@
 <h1> Pin Show Placeholder </h1>
 
-<%= @pin.image %>
+<%= @pin.image if @pin.image?%>
+<%= @pin.text if @pin.text? %>
 <br>
 <%= link_to 'Edit Pin', edit_user_story_pin_path(@user, @story, @pin) %>
 <br>

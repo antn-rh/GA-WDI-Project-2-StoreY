@@ -4,7 +4,7 @@ class PinsController < ApplicationController
   def index
     @user = User.find(params[:user_id])
     @story = Story.find(params[:story_id])
-    @pins = Story.find(params[:story_id]).pins
+    @pins = @story.pins
   end
 
   def new

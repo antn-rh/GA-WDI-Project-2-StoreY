@@ -37,8 +37,12 @@ before_action :set_story, only: [:show, :edit, :update, :destroy]
   end
 
   def destroy
-    @story.destroy
-    redirect_to user_stories_path(@user)
+    if current_user == @story.user
+      @story.destroy
+      redirect_to user_stories_path(@user)
+    else
+      redirect_to user_story_path(@user, @story)
+    end
   end
 
 private
