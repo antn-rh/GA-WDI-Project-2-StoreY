@@ -1,4 +1,4 @@
-<h1> <%= @story.title %> - Pins </h1>
+<h1> <%= @story.title %> - Story show template with pins </h1>
 
 <br>
 <%= @story.description.capitalize %>
@@ -16,10 +16,10 @@
   <% end %>
 </ul>
 <br>
-<%= link_to 'Edit Story', edit_user_story_path(@user, @story) if current_user == @user %>
+<%= link_to 'Edit Story', edit_user_story_path(@user, @story) if current_user == @story.user %>
 <br>
-<%= link_to 'Delete Story', user_story_path(@user, @story), method: :delete, data: {confirm: 'Are you sure?'} if current_user == @user%>
+<%= link_to 'Delete Story', user_story_path(@user, @story), method: :delete, data: {confirm: 'Are you sure?'} if current_user == @story.user %>
 <br>
 <%= link_to 'To Stories', user_stories_path(@user) %>
 <br>
-<%= link_to 'Add New Pin', new_user_story_pin_path(@user, @story, @pin) %>
+<%= link_to 'Add New Pin', new_user_story_pin_path(@user, @story, @pin) if current_user == @story.user %>

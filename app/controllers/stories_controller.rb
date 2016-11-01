@@ -9,7 +9,7 @@ before_action :set_story, only: [:show, :edit, :update, :destroy]
   def new
     @user = User.find(params[:user_id])
     @story = Story.new
-    if current_user != @user
+    if current_user != @story.user
       redirect_to user_stories_path(@user)
     end
   end
@@ -18,6 +18,9 @@ before_action :set_story, only: [:show, :edit, :update, :destroy]
   end
 
   def edit
+    if current_user != @story.user
+      redirect_to user_story_path(@user, @story)
+    end
   end
 
   def create
@@ -32,10 +35,14 @@ before_action :set_story, only: [:show, :edit, :update, :destroy]
   end
 
   def update
-    if @story.update_attributes(story_params)
-      redirect_to user_story_path(@user, @story)
+    if current_user == @story.user
+      if @story.update_attributes(story_params)
+        redirect_to user_story_path(@user, @story)
+      else
+        render :edit
+      end
     else
-      render :edit
+      redirect_to user_story_path(@user, @story)
     end
   end
 
@@ -50,8 +57,8 @@ before_action :set_story, only: [:show, :edit, :update, :destroy]
 
 private
   def set_story
-    @story = Story.find(params[:id])
     @user = User.find(params[:user_id])
+    @story = Story.find(params[:id])
   end
 
   def story_params

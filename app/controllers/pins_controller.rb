@@ -11,12 +11,18 @@ class PinsController < ApplicationController
     @user = User.find(params[:user_id])
     @story = Story.find(params[:story_id])
     @pin = Pin.new
+    if current_user != @pin.story.user
+      redirect_to user_story_pin_path(@user, @story)
+    end
   end
 
   def show
   end
 
   def edit
+    if current_user != @pin.story.user
+      redirect_to user_story_pin_path(@user, @story, @pin)
+    end
   end
 
   def create
@@ -32,10 +38,14 @@ class PinsController < ApplicationController
   end
 
   def update
-    if @pin.update_attributes(pin_params)
-      redirect_to user_story_pin_path(@user, @story, @pin)
+    if current_user == @pin.story.user
+      if @pin.update_attributes(pin_params)
+        redirect_to user_story_pin_path(@user, @story, @pin)
+      else
+        render :edit
+      end
     else
-      render :edit
+      redirect_to user_story_pin_path(@user, @story, @pin)
     end
   end
 
