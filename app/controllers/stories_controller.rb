@@ -7,8 +7,8 @@ before_action :set_story, only: [:show, :edit, :update, :destroy]
   end
 
   def new
-    @user = User.find(params[:user_id])
-    @story = Story.new
+      @user = User.find(params[:user_id])
+      @story = Story.new
   end
 
   def show

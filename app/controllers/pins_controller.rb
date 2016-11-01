@@ -25,7 +25,7 @@ class PinsController < ApplicationController
     @pin = Pin.new(pin_params)
     @pin.story = @story
     if @pin.save
-      redirect_to user_story_pins_path(@user, @story)
+      redirect_to user_story_path(@user, @story)
     else
       render :new
     end

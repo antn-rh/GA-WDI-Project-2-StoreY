@@ -1,18 +1,26 @@
-<%= @story.title %>
+<h1> <%= @story.title %> - Pins </h1>
+
 <br>
 <%= @story.description.capitalize %>
 <br>
 <%= @story.location.capitalize %>
 <br>
-<% @story.pins.each do |pin| %>
-  <%= image_tag pin.image.url(:med) if pin.image? %>
-  <%= pin.text %>
-<% end %>
+
+<ul>
+  <% @story.pins.each do |pin| %>
+    <li>
+      <%= image_tag pin.image.url(:med) if pin.image? %>
+      <%= pin.text %>
+      <br>
+      <%= link_to 'See More', user_story_pin_path(@user, @story, pin) %>
+    </li>
+  <% end %>
+</ul>
 <br>
-<%= link_to 'Edit', edit_user_story_path(@user, @story) if current_user %>
+<%= link_to 'Edit Story', edit_user_story_path(@user, @story) if current_user == @user %>
 <br>
-<%= link_to 'Delete', user_story_path(@user, @story), method: :delete, data: {confirm: 'Are you sure?'} if current_user%>
+<%= link_to 'Delete Story', user_story_path(@user, @story), method: :delete, data: {confirm: 'Are you sure?'} if current_user%>
 <br>
 <%= link_to 'To Stories', user_stories_path(@user) %>
 <br>
-<%= link_to 'See Pins', user_story_pins_path(@user, @story) %>
+<%= link_to 'Add New Pin', new_user_story_pin_path(@user, @story, @pin) %>

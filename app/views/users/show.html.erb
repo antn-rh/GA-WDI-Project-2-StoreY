@@ -12,7 +12,7 @@
 </ul>
 <br>
 <br>
-<%= link_to 'Create a New Story', new_user_story_path(@user, @story) if current_user %>
+<%= link_to 'Create a New Story', new_user_story_path(@user, @story) if current_user == @user %>
 <br>
 <% if @user == current_user %>
   <%= link_to 'Edit', edit_user_path %>

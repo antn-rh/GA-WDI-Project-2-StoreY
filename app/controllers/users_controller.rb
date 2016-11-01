@@ -13,6 +13,9 @@ class UsersController < ApplicationController
   end
 
   def edit
+    if @user != current_user
+      redirect_to @user
+    end
   end
 
   def create

@@ -1,4 +1,13 @@
-<div>
-  <%= f.label :image %>
-  <%= f.file_field :image %>
-</div>
+<%= form_for([@user, @story, @pin])  do |f| %>
+  <div>
+    <%= f.label :text %>
+    <%= f.text_field :text %>
+  </div>
+  <div>
+    <%= f.label :image %>
+    <%= f.file_field :image %>
+  </div>
+  <%= f.submit %>
+<% end %>
+
+<%= link_to 'Back to Story', user_story_path(@user, @story) %>
