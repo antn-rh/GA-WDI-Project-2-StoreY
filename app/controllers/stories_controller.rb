@@ -2,13 +2,16 @@ class StoriesController < ApplicationController
 before_action :set_story, only: [:show, :edit, :update, :destroy]
 
   def index
-    @stories = User.find(params[:user_id]).stories
     @user = User.find(params[:user_id])
+    @stories = @user.stories
   end
 
   def new
-      @user = User.find(params[:user_id])
-      @story = Story.new
+    @user = User.find(params[:user_id])
+    @story = Story.new
+    if current_user != @user
+      redirect_to user_stories_path(@user)
+    end
   end
 
   def show

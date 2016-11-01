@@ -8,6 +8,6 @@
   <% end %>
 </ul>
 
-<%= link_to 'New Story', new_user_story_path(@user) %>
+<%= link_to 'New Story', new_user_story_path(@user) if current_user == @user %>
 <br>
 <%= link_to 'Back to profile', user_path(@user) %>
