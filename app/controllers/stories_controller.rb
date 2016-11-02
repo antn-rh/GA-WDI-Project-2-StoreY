@@ -9,7 +9,7 @@ before_action :set_story, only: [:show, :edit, :update, :destroy]
   def new
     @user = User.find(params[:user_id])
     @story = Story.new
-    if current_user != @story.user
+    if current_user != @user
       redirect_to user_stories_path(@user)
     end
   end

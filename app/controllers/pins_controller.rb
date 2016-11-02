@@ -11,6 +11,7 @@ class PinsController < ApplicationController
     @user = User.find(params[:user_id])
     @story = Story.find(params[:story_id])
     @pin = Pin.new
+    @pin.story = @story
     if current_user != @pin.story.user
       redirect_to user_story_pin_path(@user, @story)
     end
