@@ -20,6 +20,6 @@
 <br>
 <%= link_to 'Delete Story', user_story_path(@user, @story), method: :delete, data: {confirm: 'Are you sure?'} if current_user == @story.user %>
 <br>
-<%= link_to 'To Stories', user_stories_path(@user) %>
+<%= link_to 'To Stories', user_path(@user) %>
 <br>
 <%= link_to 'Add New Pin', new_user_story_pin_path(@user, @story, @pin) if current_user == @story.user %>
