@@ -1,15 +1,14 @@
 <%= form_for([@user, @story]) do |f| %>
-  <div>
-    <%= f.label :title %>
-    <%= f.text_field :title %>
+  <div class="form-group">
+    <%= f.text_field :title, class: "form-control", placeholder: "Title" %>
   </div>
-  <div>
-    <%= f.label :description %>
-    <%= f.text_field :description %>
+  <div class="form-group">
+    <%= f.text_field :description, class: "form-control", placeholder: "Description" %>
   </div>
-  <div>
-    <%= f.label :location %>
-    <%= f.text_field :location %>
+  <div class="form-group">
+    <%= f.text_field :location, class: "form-control", placeholder: "Location" %>
   </div>
-  <%= f.submit %>
+  <div class="form-group">
+    <%= f.submit class: "btn btn-primary"%>
+  </div>
 <% end %>

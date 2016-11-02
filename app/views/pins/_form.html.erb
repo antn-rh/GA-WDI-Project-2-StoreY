@@ -1,13 +1,15 @@
 <%= form_for([@user, @story, @pin])  do |f| %>
-  <div>
-    <%= f.label :text %>
-    <%= f.text_field :text %>
+  <div class="form-group">
+    <%= f.text_field :text, class: "form-control", placeholder: "Text" %>
   </div>
-  <div>
+  <div class="form-group">
     <%= f.label :image %>
-    <%= f.file_field :image %>
+    <%= f.file_field :image, type: "file" %>
   </div>
-  <%= f.submit %>
+  <div class="form-group">
+    <%= f.submit class: "btn btn-primary"%>
+  </div>
+
 <% end %>
 
 <%= link_to 'Back to Story', user_story_path(@user, @story) %>

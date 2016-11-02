@@ -1,9 +1,10 @@
-<h1>USERS INDEX</h1>
-
+<div class="col-md-6 col-md-offset-3">
+  
   <% @users.each do |user| %>
-    <div class="col-md-4">
-      <%= link_to (image_tag user.stories.first.pins.first.image.url(:med)), user_path(user) if user.stories.first && user.stories.first.pins.first && user.stories.first.pins.first.image? %>
-      <br>
-      <%= link_to user.name, user_path(user) %>
-    </div>
+  <div class="col-md-4">
+    <%= link_to (image_tag user.stories.first.pins.first.image.url(:large)), user_path(user) if user.stories.first && user.stories.first.pins.first && user.stories.first.pins.first.image? %>
+    <br>
+    <%= link_to user.name, user_path(user) %>
+  </div>
   <% end %>
+</div>
