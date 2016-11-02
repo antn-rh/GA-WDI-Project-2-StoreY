@@ -16,7 +16,7 @@
           <nav class="navbar-brand"><%= link_to 'Home', users_path %></nav>
           <ul class="nav navbar-nav navbar-right">
             <li>
-              <%= link_to 'Account', user_path(@user) %>
+              <%= link_to 'Account', user_path(current_user.id) %>
             </li>
             <li>
               <%= link_to 'Sign Out', logout_path, method: :delete %>
@@ -24,6 +24,9 @@
           </ul>
         <% else %>
           <ul class="nav navbar-nav navbar-right">
+            <li>
+              <%= link_to 'Sign Up', new_user_path %>
+            </li>
             <li>
               <%= link_to 'Sign In', login_path %>
             </li>

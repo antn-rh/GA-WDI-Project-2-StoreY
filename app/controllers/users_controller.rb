@@ -3,6 +3,9 @@ class UsersController < ApplicationController
 
   def welcome
     @user = User.new
+    if current_user != nil
+      redirect_to users_path
+    end
   end
 
   def index
@@ -11,6 +14,9 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+    if current_user != nil
+      redirect_to users_path
+    end
   end
 
   def show
