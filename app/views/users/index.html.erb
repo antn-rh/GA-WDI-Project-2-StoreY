@@ -2,7 +2,7 @@
 
   <% @users.each do |user| %>
     <div class="col-md-4">
-      <%= link_to (image_tag user.stories.first.pins.first.image.url(:med)), user_path(user) if user.stories.first.pins.first.image.url(:med) %>
+      <%= link_to (image_tag user.stories.first.pins.first.image.url(:med)), user_path(user) if user.stories.first && user.stories.first.pins.first && user.stories.first.pins.first.image? %>
       <br>
       <%= link_to user.name, user_path(user) %>
     </div>
