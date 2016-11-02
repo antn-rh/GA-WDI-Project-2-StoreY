@@ -1,6 +1,10 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
+  def welcome
+    @user = User.new
+  end
+
   def index
     @users = User.all
   end
@@ -38,7 +42,7 @@ class UsersController < ApplicationController
 
   def destroy
     @user.destroy
-    redirect_to users_path
+    redirect_to root_path
   end
 
 private
