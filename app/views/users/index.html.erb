@@ -1,9 +1,9 @@
 <h1>USERS INDEX</h1>
-<ul>
+
   <% @users.each do |user| %>
-    <li>
-      <%= user.name %> - <%= link_to 'Show', user_path(user) %>
-    </li>
+    <div class="col-md-4">
+      <%= link_to (image_tag user.stories.first.pins.first.image.url(:med)), user_path(user) if user.stories.first.pins.first.image.url(:med) %>
+      <br>
+      <%= link_to user.name, user_path(user) %>
+    </div>
   <% end %>
-  <br>
-</ul>
