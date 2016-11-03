@@ -11,10 +11,10 @@
   <body>
     <% if current_user != nil %>
       <nav class="navbar navbar-default">
-        <div class="container">
-          <nav class="navbar-brand navbar-left" id="storeysign">
-            <%= link_to "StoreY", users_path  %>
+          <nav class="navbar-brand navbar-left">
+            <%= link_to "StoreY", users_path, id: "storeysign"  %>
           </nav>
+          <div class="container">
             <ul class="nav navbar-nav navbar-right">
               <li role="presentation" class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <%= current_user.name %> <span class="caret"></span>

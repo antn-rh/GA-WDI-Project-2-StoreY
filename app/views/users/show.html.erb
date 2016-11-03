@@ -1,14 +1,24 @@
+<div class="row profileLinks">
+  <%= link_to 'new story', new_user_story_path(@user, @story) %>
+  <br>
+  <%= link_to 'stories archive', user_stories_path(@user) %>
+</div>
+
 <div class="col-md-6 col-md-offset-3">
   <h1> <%= @user.name %> </h1>
   <br>
     <% @user.stories.each do |story| %>
-      <div class="col-md-4">
-        <% story.pins.each do |pin| %>
-        <%= image_tag pin.image.url(:large) if pin.image? %>
-        <% end %>
-        <div class="storyTitle">
-          <%= link_to story.title, user_story_path(@user, story) %>
-        </div>
+      <div class="col-md-4 img-box">
+        <%= image_tag story.pins.first.image.url(:large) if story.pins.first.image? %>
+      </div>
+      <div class="col-md-4 img-box">
+        <%= image_tag story.pins.second.image.url(:large) if story.pins.second.image? %>
+      </div>
+      <div class="col-md-4 img-box">
+        <%= image_tag story.pins.third.image.url(:large) if story.pins.third.image? %>
+      </div>
+      <div class="storyTitle">
+        <%= link_to story.title, user_story_path(@user, story) %>
       </div>
     <% end %>
 </div>
