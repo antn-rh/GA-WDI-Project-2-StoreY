@@ -18,6 +18,9 @@
 h1, h3 {
   text-align: center;
   font-family: 'Shadows Into Light', cursive;
+  :hover {
+    text-decoration: none;
+  }
 }
 
 .welcome-bg {
@@ -52,9 +55,17 @@ h1, h3 {
   text-align: right;
 }
 
-.img-box img {
-  width: 50px;
-  height: 50px;
+.box {
+  display: inline-block;
+  margin: 10px;
+  width: 350px;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
+  border-radius: 7px;
+  text-align: center;
+  img {
+    max-width: 100%;
+    height: auto;
+  }
 }
 
 #form-container {

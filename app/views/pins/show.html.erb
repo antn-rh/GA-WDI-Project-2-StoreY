@@ -1,4 +1,3 @@
-
 <div class="profileLinks">
   <% if current_user == @pin.story.user %>
   <%= link_to 'Edit Pin', edit_user_story_pin_path(@user, @story, @pin) %>
@@ -9,8 +8,17 @@
   <% end %>
 </div>
 
-<h1> <%= @pin.text %> </h1>
+<div class="col-md-6 col-md-offset-3">
+  <h1> <%= @pin.text %> </h1>
+  <br>
+  <h3> from <%= link_to @pin.story.title, user_story_path(@user, @story) %> </h3>
+</div>
 
-<%= image_tag @pin.image.url(:large) if @pin.image?%>
-<%= @pin.text if @pin.text? %>
-<br>
+<div class="container col-md-8 col-md-offset-4">
+  <div class="box panel panel-default">
+    <%= image_tag @pin.image.url() if @pin.image?%>
+    <div class="panel-body">
+      <%= @pin.text %>
+    </div>
+  </div>
+</div>

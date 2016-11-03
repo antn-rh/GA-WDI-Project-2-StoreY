@@ -10,15 +10,6 @@
   <h1> <%= @user.name %> </h1>
   <br>
     <% @user.stories.each do |story| %>
-      <div class="col-md-4 img-box">
-        <%= image_tag story.pins.first.image.url(:large) if story.pins.first.image? %>
-      </div>
-      <div class="col-md-4 img-box">
-        <%= image_tag story.pins.second.image.url(:large) if story.pins.second.image? %>
-      </div>
-      <div class="col-md-4 img-box">
-        <%= image_tag story.pins.third.image.url(:large) if story.pins.third.image? %>
-      </div>
       <div class="storyTitle">
         <%= link_to story.title, user_story_path(@user, story) %>
       </div>
