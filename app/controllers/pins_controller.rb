@@ -5,6 +5,9 @@ class PinsController < ApplicationController
     @user = User.find(params[:user_id])
     @story = Story.find(params[:story_id])
     @pins = @story.pins
+    if current_user != @story.user
+      redirect_to user_story_path(@user, @story)
+    end
   end
 
   def new

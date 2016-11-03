@@ -1,6 +1,8 @@
 <div class="row profileLinks">
-  <%= link_to 'new story', new_user_story_path(@user, @story) %>
-  <br>
+  <% if current_user == @user %>
+    <%= link_to 'new story', new_user_story_path(@user, @story) %>
+    <br>
+  <% end %>
   <%= link_to 'stories archive', user_stories_path(@user) %>
 </div>
 
