@@ -1,11 +1,11 @@
 <div class="row profileLinks">
-  <%= link_to 'Add New Pin', new_user_story_pin_path(@user, @story, @pin) %>
+  <%= link_to 'back to profile', user_path(@user) %>
   <br>
-  <%= link_to 'Back to Story', user_story_path(@user, @story) %>
+  <%= link_to 'back to story archive', user_stories_path(@user) %>
 </div>
 
 <div class="col-md-6 col-md-offset-3">
-  <h1><%= @story.title %></h1>
+  <h1><%= @story.title %> - archive </h1>
   <br>
   <h3> <%= @story.description %> </h3>
   <br>
@@ -13,7 +13,7 @@
 
   <% @pins.each do |pin| %>
   <div class="col-md-4">
-    <%= link_to (image_tag pin.image.url(:large)), user_story_pin_path(@user, @story, pin) if pin.image? %>
+    <%= image_tag pin.image.url(:large) if pin.image? %>
   </div>
   <% end %>
 </div>

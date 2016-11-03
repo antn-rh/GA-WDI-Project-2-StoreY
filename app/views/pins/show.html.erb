@@ -11,6 +11,6 @@
 
 <h1> <%= @pin.text %> </h1>
 
-<%= image_tag @pin.image.url(:med) if @pin.image?%>
+<%= image_tag @pin.image.url(:large) if @pin.image?%>
 <%= @pin.text if @pin.text? %>
 <br>

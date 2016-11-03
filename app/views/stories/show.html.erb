@@ -19,7 +19,7 @@
 <ul>
   <% @story.pins.each do |pin| %>
     <li>
-      <%= image_tag pin.image.url(:med) if pin.image? %>
+      <%= image_tag pin.image.url(:large) if pin.image? %>
       <%= pin.text %>
       <%= link_to 'See More', user_story_pin_path(@user, @story, pin) %>
     </li>
