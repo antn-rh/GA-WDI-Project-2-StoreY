@@ -1,3 +1,9 @@
+<div class="row profileLinks">
+  <%= link_to 'new story', new_user_story_path(@user) if current_user == @user %>
+  <br>
+  <%= link_to 'back to profile', user_path(@user) %>
+</div>
+
 <h1>Stories</h1>
 
 <ul>
@@ -10,7 +16,3 @@
     </li>
   <% end %>
 </ul>
-
-<%= link_to 'New Story', new_user_story_path(@user) if current_user == @user %>
-<br>
-<%= link_to 'Back to profile', user_path(@user) %>
