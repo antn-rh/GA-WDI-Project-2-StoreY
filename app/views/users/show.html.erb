@@ -1,12 +1,14 @@
-<h1> <%= @user.name %>'s Profile </h1>
-
-<ul>
-  <% @user.stories.each do |story| %>
-    <li>
-      <%= link_to story.title, user_story_path(@user, story) %>
+<div class="col-md-6 col-md-offset-3">
+  <h1> <%= @user.name %>'s Profile </h1>
+  <br>
+    <% @user.stories.each do |story| %>
+      <div class="col-md-4">
         <% story.pins.each do |pin| %>
-          <%= image_tag pin.image.url(:med) if pin.image? %>
+        <%= image_tag pin.image.url(:med) if pin.image? %>
         <% end %>
-      <% end %>
-    </li>
-</ul>
+        <div class="storyTitle">
+          <%= link_to story.title, user_story_path(@user, story) %>
+        </div>
+      </div>
+    <% end %>
+</div>
