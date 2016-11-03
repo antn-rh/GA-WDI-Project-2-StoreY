@@ -1,5 +1,6 @@
 <div class="col-md-6 col-md-offset-3">
-  
+  <div>See what others are sharing around you.</div>
+
   <% @users.each do |user| %>
   <div class="col-md-4">
     <%= link_to (image_tag user.stories.first.pins.first.image.url(:large)), user_path(user) if user.stories.first && user.stories.first.pins.first && user.stories.first.pins.first.image? %>

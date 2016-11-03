@@ -15,6 +15,16 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+// hr {
+//   height: 12px;
+//   border: 0;
+//   box-shadow: inset 0 12px 12px -12px rgba(0, 0, 0, 0.5);
+// }
+
+h1, h3 {
+  text-align: center;
+}
+
 .welcome-bg {
   background: url('http://imgur.com/ZXpacb3.jpg');
   background-size: cover;
@@ -22,6 +32,12 @@
 }
 
 .navbar {
+  font-family: 'Shadows Into Light', cursive;
+  background: transparent;
+  border-color: rgba(0, 0, 0, .5);
+  border-left: 0;
+  border-right: 0;
+  border-top: 0;
 }
 
 #form-container {
@@ -34,4 +50,5 @@
 
 #storeysign {
   font-family: 'Shadows Into Light', cursive;
+  text-decoration: none;
 }
