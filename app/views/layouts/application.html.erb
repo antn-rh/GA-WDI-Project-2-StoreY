@@ -6,13 +6,15 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Pacifico|Shadows+Into+Light" rel="stylesheet">  </head>
 
   <body>
     <% if current_user != nil %>
-      <nav class="navbar navbar-primary">
+      <nav class="navbar navbar-default">
         <div class="container">
-            <nav class="navbar-brand navbar-left"><%= link_to 'StoreY', users_path %></nav>
+          <nav class="navbar-brand navbar-left" id="storeysign">
+            <%= link_to 'StoreY', users_path %>
+          </nav>
             <ul class="nav navbar-nav navbar-right">
               <li role="presentation" class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"> <%= current_user.name %> <span class="caret"></span>
@@ -27,14 +29,14 @@
                     <li>
                       <%= link_to 'Account Settings', edit_user_path(current_user.id) %>
                     </li>
-                  </ul>
-              </li>
+                  </ul> <!-- dropdown-menu -->
+              </li> <!-- role="presentation" class="dropdown" -->
               <li>
                 <%= link_to 'Sign Out', logout_path, method: :delete %>
               </li>
-            </ul>
-        </div>
-      </nav>
+            </ul> <!-- class="nav navbar-nav navbar-right" -->
+        </div> <!-- container -->
+      </nav> <!-- class="navbar navbar-default" -->
     <% end %>
     <%= yield %>
   </body>
