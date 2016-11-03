@@ -1,13 +1,16 @@
-<h1> Pin Show Placeholder </h1>
 
-<%= image_tag @pin.image.url(:med) if @pin.image?%>
-<%= @pin.text if @pin.text? %>
-<br>
-
-<% if current_user == @pin.story.user %>
+<div class="profileLinks">
+  <% if current_user == @pin.story.user %>
   <%= link_to 'Edit Pin', edit_user_story_pin_path(@user, @story, @pin) %>
   <br>
   <%= link_to 'Delete Pin', user_story_pin_path(@user, @story, @pin), method: :delete, data: {confirm: 'Are you sure?'} %>
   <br>
   <%= link_to 'Back to Story', user_story_path(@user, @story) %>
-<% end %>
+  <% end %>
+</div>
+
+<h1> <%= @pin.text %> </h1>
+
+<%= image_tag @pin.image.url(:med) if @pin.image?%>
+<%= @pin.text if @pin.text? %>
+<br>
