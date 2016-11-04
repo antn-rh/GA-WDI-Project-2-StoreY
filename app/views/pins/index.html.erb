@@ -10,10 +10,15 @@
   <h3> <%= @story.description %> </h3>
   <br>
   <h3> <%= @story.location %> </h3>
+</div>
 
+<div class="container">
   <% @pins.each do |pin| %>
-  <div class="col-md-4">
-    <%= image_tag pin.image.url(:large) if pin.image? %>
+  <div class="box panel panel-default">
+    <%= image_tag pin.image.url() if pin.image? %>
+    <div class="panel-body">
+      <%= pin.text %>
+    </div>
   </div>
   <% end %>
 </div>
