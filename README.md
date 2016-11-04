@@ -34,7 +34,7 @@ Heroku link: https://storeyproject2.herokuapp.com/
 
 ### Unsolved Problems
 
-The majority of my unsolved problems lie with styling. There are specific instances where a page does not load as it should. However, refershing the web page fixes the issue. 
+The majority of my unsolved problems lie with styling. There are specific instances where a page does not load as it should. However, refershing the web page fixes the issue. I also have issues with pins that are only text. The sign in/up page's background image is not responsive. 
 
 ---
 ### Trello Board
