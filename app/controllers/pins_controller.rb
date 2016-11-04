@@ -13,7 +13,7 @@ class PinsController < ApplicationController
     @pin = Pin.new
     @pin.story = @story
     if current_user != @pin.story.user
-      redirect_to user_story_pin_path(@user, @story)
+      redirect_to user_story_pins_path(@user, @story)
     end
   end
 

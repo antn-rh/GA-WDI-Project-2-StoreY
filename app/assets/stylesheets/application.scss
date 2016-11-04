@@ -85,3 +85,22 @@ h1, h3 {
   font-family: 'Shadows Into Light', cursive;
   text-decoration: none;
 }
+
+#story-archives {
+  display: inline-block;
+  margin: 0 auto;
+  width: 100%;
+  .box {
+    margin: 10px;
+    width: 500px;
+    text-align: center;
+    img {
+      width: 200px;
+      height: 100px;
+    }
+  }
+}
+
+#story-archive-contents {
+  padding: 20px;
+}
