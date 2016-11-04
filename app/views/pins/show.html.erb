@@ -14,11 +14,11 @@
   <h3> from <%= link_to @pin.story.title, user_story_path(@user, @story) %> </h3>
 </div>
 
-<div class="container col-md-8 col-md-offset-4">
+<div id="pins">
   <div class="box panel panel-default">
     <%= image_tag @pin.image.url() if @pin.image?%>
     <div class="panel-body">
-      <!-- <%= @pin.text %> -->
+      <%= @pin.text %>
     </div>
   </div>
 </div>
