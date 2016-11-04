@@ -22,6 +22,8 @@ gem 'paperclip'
 gem 'aws-sdk', '~> 2.3'
 # Gemfile for user authentification
 gem 'bcrypt', '~> 3.1.7'
+# Gemfile for masonry
+gem 'masonry-rails', '~> 0.2.1'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks

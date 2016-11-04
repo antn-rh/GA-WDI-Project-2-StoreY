@@ -10,6 +10,9 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require 'masonry/transitions'
+ *= require_tree .
+ *= require_self
  */
 
 @import "bootstrap-sprockets";
@@ -55,16 +58,21 @@ h1, h3 {
   text-align: right;
 }
 
-.box {
-  margin: 10px;
-  width: 350px;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
-  border-radius: 7px;
-  text-align: center;
-  img {
-    max-width: 100%;
-    height: auto;
-  }
+#pins {
+  top: 150px;
+  margin: 0 auto;
+  width: 100%;
+  .box {
+	  margin: 10px;
+	  width: 350px;
+	  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
+	  border-radius: 7px;
+	  text-align: center;
+	  img {
+	  	max-width: 100%;
+	  	height: auto;
+	  }
+	}
 }
 
 #form-container {
