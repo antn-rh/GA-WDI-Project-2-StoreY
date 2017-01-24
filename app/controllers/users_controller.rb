@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  # have a second before_action for index, new, etc.
 
   def welcome
     @user = User.new
